@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-bar {
+  background: #ff6600;
+  display: flex;
+  margin: 1rem 5rem;
+}
+.nav-bar > h3,
+h6 {
+  margin-right: 0.5rem;
+}
+
+.login-nav-bar {
+  margin-left: 45rem;
+}
