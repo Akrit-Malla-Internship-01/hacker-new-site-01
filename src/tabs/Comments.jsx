@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-import NewsDesc from "./NewsDesc";
+import CommentsText from "./CommentsText";
 
 export default class Comments extends Component {
   constructor() {
@@ -12,9 +12,10 @@ export default class Comments extends Component {
 
   componentDidMount(id) {
     axios
-      .get("https://hacker-news.firebaseio.com/v0/item/" + { id } + ".json")
+      .get("https://hacker-news.firebaseio.com/v0/maxitem.json")
       .then((res) => {
         this.setState({ comments: res.data });
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -24,9 +25,7 @@ export default class Comments extends Component {
   render() {
     const { comments } = this.state;
 
-    let news = comments.map((element) => {
-      return <NewsDesc key={element} id={element} />;
-    });
+    let news = <CommentsText key={comments} id={this.state.comments} />;
 
     return (
       <div>

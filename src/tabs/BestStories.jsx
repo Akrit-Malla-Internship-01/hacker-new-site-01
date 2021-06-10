@@ -11,7 +11,7 @@ export default class BestStories extends Component {
   }
   componentDidMount() {
     axios
-      .get(` https://hacker-news.firebaseio.com/v0/beststories.json`)
+      .get(`https://hacker-news.firebaseio.com/v0/beststories.json`)
       .then((res) => {
         this.setState({ bestStories: res.data });
       })
@@ -22,15 +22,10 @@ export default class BestStories extends Component {
   render() {
     const { bestStories } = this.state;
 
-    let news = bestStories.map((element) => {
-      return <NewsDesc key={element} id={element} />;
+    let news = bestStories.map((element, i) => {
+      return <NewsDesc key={element} index={i + 1} id={element} />;
     });
 
-    return (
-      <div>
-        <p>These are the best stories: &nbsp;</p>
-        {news}
-      </div>
-    );
+    return <div>{news}</div>;
   }
 }

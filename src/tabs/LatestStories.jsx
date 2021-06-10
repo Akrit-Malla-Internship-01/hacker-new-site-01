@@ -9,11 +9,11 @@ export default class LatestStories extends Component {
       latestStories: [],
     };
   }
+
   componentDidMount() {
-    const story = axios
+    axios
       .get("https://hacker-news.firebaseio.com/v0/newstories.json")
       .then((res) => {
-        console.log(res.data);
         this.setState({ latestStories: res.data });
       })
       .catch((err) => {
@@ -23,15 +23,10 @@ export default class LatestStories extends Component {
   render() {
     const { latestStories } = this.state;
 
-    let news = latestStories.map((element) => {
-      return <NewsDesc key={element} id={element} />;
+    let news = latestStories.map((element, i) => {
+      return <NewsDesc key={element} index={i + 1} id={element} />;
     });
 
-    return (
-      <div>
-        <p>These are the latest stories: &nbsp;</p>
-        {news}
-      </div>
-    );
+    return <div>{news}</div>;
   }
 }

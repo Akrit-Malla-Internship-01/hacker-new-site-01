@@ -23,15 +23,10 @@ export default class TopStories extends Component {
   render() {
     const { topStories } = this.state;
 
-    let news = topStories.map((element) => {
-      return <NewsDesc key={element} id={element} />;
+    let news = topStories.map((element, i) => {
+      return <NewsDesc key={element} index={i + 1} id={element} />;
     });
 
-    return (
-      <div>
-        <p>These are the top stories: &nbsp;</p>
-        {news}
-      </div>
-    );
+    return <div>{news}</div>;
   }
 }

@@ -20,16 +20,17 @@ export default class NewsDesc extends Component {
   }
   render() {
     const { isLoaded, data } = this.state;
-
-    return (
-      <p key={data.id}>
-        {isLoaded
-          ? `${data.title} (url) ` +
-            `${data.score} points, by: ${data.by},` +
-            `Time: ${data.time}, ${data.descendants} comments`
-          : ""}
-        <p></p>
-      </p>
+    let display = isLoaded ? (
+      <div className="story">
+        <p className="story_title">{this.props.index + ". " + data.title}</p>
+        <p className="story_detail">
+          {data.score} points, by: {data.by}, Time:
+          {new Date(data.time * 1000).toUTCString()},{data.descendants} comments
+        </p>
+      </div>
+    ) : (
+      ""
     );
+    return <div key={data.id}> {display}</div>;
   }
 }

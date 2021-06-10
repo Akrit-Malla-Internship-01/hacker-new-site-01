@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 1rem 5rem 1rem 5rem;
 }
 
 .App-logo {
@@ -38,15 +39,41 @@
 }
 
 .nav-bar {
+  padding: 0.5rem;
   background: #ff6600;
-  display: flex;
-  margin: 1rem 5rem;
+  display: grid;
+  grid-template-columns: 0.4fr 1fr 1fr 1fr 1fr 1fr 6.6fr;
+
+  font-size: 14px;
+  font-weight: bolder;
 }
-.nav-bar > h3,
-h6 {
-  margin-right: 0.5rem;
+.nav-bar > p,
+.nav-bar > a > p {
+  text-align: left;
+  display: inline;
+  margin: 0;
 }
 
 .login-nav-bar {
-  margin-left: 45rem;
+  justify-self: right;
+}
+
+.story {
+  display: grid;
+  justify-content: left;
+  margin: 0.5rem 0;
+}
+.story_title {
+  text-align: left;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.story_detail {
+  font-size: 0.7rem;
+  text-align: left;
+  margin: 0;
+}
+.logo {
+  border: 1px solid white;
 }
